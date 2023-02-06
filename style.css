@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+}
+
+:root{
+    --cor-01-gradient: #4f33b0;
+    --cor-02-gradient: #d235a5;
+    
+    /* Tema Light */
+    --cor-display: #0a1e23;
+    --cor-01-limpar: #ffd5d8;
+    --cor-02-limpar: #fc4552;
+    --cor-01-numero: #c3eaff;
+    --cor-01-operador: #ffd0fb;
+    --cor-02-operador: #f965f3;
+    --cor-01-igual: #adf9e7;
+
+    /* Tema Dark */
+    --cor-background-dark: #071115;
+    --cor-display-dark: #f8fafd;
+    --cor-01-limpar-dark: #2d191e;
+    --cor-02-limpar-dark: #bd3740;
+    --cor-01-numero-dark: #1b2f38;
+    --cor-02-numero-dark: #f8fafb;
+    --cor-01-operador-dark: #2e1f39;
+    --cor-02-operador-dark: #aa00a4;
+    --cor-01-igual-dark: #223323;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, var(--cor-01-gradient), var(--cor-02-gradient));
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.calculadora{
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tema-alternador{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.tema-alternador.ativo{
+    color: #333;
+}
+
+.tema-alternador.ativo::before{
+    background-color: #fff;
+}
+
+.tema-alternador::before{
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #333;
+    z-index: -1;
+}
+
+#display{
+    margin: 0 10px;
+    height: 80px;
+    width: auto;
+    max-width: 270px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+
+#display::-webkit-scrollbar{
+    display: block;
+    height: 3px;
+}
+
+button{
+    height: 60px;
+    width: 60px;
+    border: 0;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+button#igual{
+    height: 130px;
+}
+
+/* Tema Light */
+
+.calculadora{
+    background-color: #fff;
+}
+
+.calculadora #display{
+    color: var(--cor-display);
+}
+
+.calculadora button#limpar{
+    background-color: var(--cor-01-limpar);
+    color: var(--cor-02-limpar);
+}
+
+.calculadora button.btn-numero{
+    background-color: var(--cor-01-numero);
+    color: #000;
+}
+
+.calculadora button.btn-operador{
+    background-color: var(--cor-01-operador);
+    color: var(--cor-02-operador);
+}
+
+.calculadora button.btn-igual{
+    background-color: var(--cor-01-igual);
+    color: #000;
+}
+
+/* Tema Dark */
+
+.calculadora.dark{
+    background-color: var(--cor-background-dark);
+}
+
+.calculadora.dark #display{
+    color: var(--cor-display-dark);
+}
+
+.calculadora.dark button#limpar{
+    background-color: var(--cor-01-limpar-dark);
+    color: var(--cor-02-limpar-dark);
+}
+
+.calculadora.dark button.btn-numero{
+    background-color: var(--cor-01-numero-dark);
+    color: var(--cor-02-numero-dark);
+}
+
+.calculadora.dark button.btn-operador{
+    background-color: var(--cor-01-operador-dark);
+    color: var(--cor-02-operador-dark);
+}
+
+.calculadora.dark button.btn-igual{
+    background-color: var(--cor-01-igual-dark);
+    color: #fff;
+}
